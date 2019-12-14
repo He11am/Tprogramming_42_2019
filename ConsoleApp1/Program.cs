@@ -58,7 +58,6 @@ namespace CourseApp
             {
                 Console.WriteLine(item);
             }
-
             Console.ReadKey();
         }
     }
