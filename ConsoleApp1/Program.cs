@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CourseApp
 {
-    public class Program1
+    public class Program
     {
         public static double MyFunction(double a, double b, double x)
         {
