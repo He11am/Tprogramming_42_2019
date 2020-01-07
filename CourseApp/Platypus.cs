@@ -1,60 +1,76 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CourseApp
 {
-    public class Platypus
+    interface IFlight
     {
-        private int age;
+        void Move();
 
-        public Platypus()
-        : this(0, "Untitled", true)
+        // move
+    }
+
+    public class Plane : IFlight
+    {
+        public string name; // имя
+        public string mk; // модель
+        public int weight; // вес
+        public string type; // тип самолета
+
+        public void GetInfo()
         {
+            Console.WriteLine($"Name: {name} \n Mk: {mk} \n Weight: {weight} \n Type: {type} \n ");
         }
 
-        public Platypus(int age, string name, bool isMale)
+        public void Move()
+        { }
+    }
+
+    public class LitePlane : Plane
+    {
+
+        public void GetInfo()
         {
-            this.Name = name;
-            Age = age;
-            IsMale = isMale;
+            Console.WriteLine($"Name: {name} \n Mk: {mk} \n Weight: {weight} \n Type: {type} \n ");
+            Console.WriteLine("I'm a little plane");
         }
 
-        public string Name { get; set; }
+    }
 
-        public int Age
+    class Program
+    {
+        static void Main(string[] args)
         {
-            get
-            {
-                return this.age;
-            }
+            Plane boeing = new Plane();
+            boeing.name = "Boeing";
+            boeing.mk = "777";
+            boeing.weight = 16500;
+            boeing.type = "passanger";
 
-            set
-            {
-                if (value >= 0 && value < 20)
-                {
-                    this.age = value;
-                }
-                else
-                {
-                    Console.WriteLine("Age should be > 0 and < than 20");
-                }
-            }
-        }
+            boeing.GetInfo();
 
-        public bool IsMale { get; set; }
 
-        public bool IsPoisoned
-        {
-            get { return this.IsMale; }
-        }
 
-        public string View()
-        {
-            return @"
-         _.-^~~^^^`~-,_,,~''''''```~,''``~'``~,
- ______,'  -o  :.  _    .          ;     ,'`,  `.
-(      -\.._,.;;'._ ,(   }        _`_-_,,    `, `,
- ``~~~~~~'   ((/'((((____/~~~~~~'(,(,___>      `~'
- ";
+            Plane airbus = new Plane();
+            airbus.name = "Airbus";
+            airbus.mk = "A400M Atlas";
+            airbus.weight = 76500;
+            airbus.type = "military";
+
+            airbus.GetInfo();
+
+            LitePlane litePlane = new LitePlane();
+            litePlane.name = "Cessna";
+            litePlane.mk = "172";
+            litePlane.weight = 736;
+            litePlane.type = "passanger";
+
+            litePlane.GetInfo();
+
+            Console.ReadKey();
         }
     }
 }
