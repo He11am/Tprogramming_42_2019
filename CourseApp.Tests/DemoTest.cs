@@ -7,8 +7,8 @@ namespace CourseApp.Tests
     public class DemoTest
     {
         [Theory]
-        [InlineData(0.4, 0.8, 2.8, 1.042)]
-        [InlineData(0.4, 0.8, 3.6, 0.934)]
+        [InlineData(0.4, 0.8, 2.8, 0.454)]
+        [InlineData(0.4, 0.8, 3.6, 0.407)]
         public void TestMyFunction(double a, double b, double x, double exp)
         {
             Assert.Equal(Math1.MyFunction(a, b, x), exp, 3);
